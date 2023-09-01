@@ -1,42 +1,45 @@
-# add
-def add(n1,n2):
-  return n1+n2
-# subtract
-def sub(n1,n2):
-  return n1-n2
-# multiply
-def mul(n1, n2):
-  return n1*n2
-# Division
-def div(n1,n2):
-  return n1/n2
+from replit import clear
+from art import logo
 
-# dictionary
-operations={
+def add(n1, n2):
+  return n1 + n2
+
+def subtract(n1, n2):
+  return n1 - n2
+
+def multiply(n1, n2):
+  return n1 * n2
+
+def divide(n1, n2):
+  return n1 / n2
+
+operations = {
   "+": add,
-  "-": sub,
-  "*": mul,
-  "/":div}
+  "-": subtract,
+  "*": multiply,
+  "/": divide
+}
 
-num1=int(input("Enter the first number: \n"))
+def calculator():
+  print(logo)
 
-
-for symbol in operations:
-  print(symbol)
-should_continue=True
-while should_continue:
+  num1 = float(input("What's the first number?: "))
+  for symbol in operations:
+    print(symbol)
+  should_continue = True
  
-  operation_symbol=input("Enter the operation to be performed:\n")
-  num2=int(input("Enter the next number: \n"))
-  
-  calculation_function=  operations[operation_symbol]
-  answer=(calculation_function(num1,num2))
-  print(f"{num1} {operation_symbol} {num2} = {answer}")
-  
-  if input("Do you want to continue with this answer? (y/n) \n")=="y":
-    num1=answer
-    # num2=int(input("Enter the next number: \n"))
-  else:
-    should_continue=False
-  
+  while should_continue:
+    operation_symbol = input("Pick an operation: ")
+    num2 = float(input("What's the next number?: "))
+    calculation_function = operations[operation_symbol]
+    answer = calculation_function(num1, num2)
+    print(f"{num1} {operation_symbol} {num2} = {answer}")
 
+    if input(f"Type 'y' to continue calculating with {answer}, or type 'n' to start a new calculation: ") == 'y':
+      num1 = answer
+    else:
+      should_continue = False
+      clear()
+      calculator()
+
+calculator()
