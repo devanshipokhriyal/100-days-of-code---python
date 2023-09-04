@@ -20,8 +20,9 @@ def calculate_score(cards):
     return 0
   #Hint 8: Inside calculate_score() check for an 11 (ace). If the score is already over 21, remove the 11 and replace it with a 1. You might need to look up append() and remove().
   if 11 in cards and sum(cards) > 21:
-    cards.remove(11)
-    cards.append(1)
+    cards=sum(cards)-10
+    # cards.remove(11)
+    # cards.append(1)
   return sum(cards)
 
 #Hint 13: Create a function called compare() and pass in the user_score and computer_score. If the computer and user both have the same score, then it's a draw. If the computer has a blackjack (0), then the user loses. If the user has a blackjack (0), then the user wins. If the user_score is over 21, then the user loses. If the computer_score is over 21, then the computer loses. If none of the above, then the player with the highest score wins.
