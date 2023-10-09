@@ -1,8 +1,9 @@
-import random
 from art import logo
-
+print(logo)
+import random
 # def dificulty():
 #     difficulty=input("select the difficulty- easy or hard?\n")
+#     attempts=0
 #     if difficulty=="hard":
 #         attempts=5
 #     else:
@@ -16,7 +17,7 @@ again=True
 
 while again!=False:
 
-# dificulty() #attempts=10/5
+    # dificulty() #attempts=10/5
 
     difficulty=input("Select the difficulty- easy or hard?\n")
     if difficulty=="hard":
